@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nonna Lume — Trattoria</title>
+  <meta name="description" content="Nonna Lume, a modern Italian trattoria. Pasta twirled by hand, every night.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <!-- Grain overlay -->
+  <svg class="grain" aria-hidden="true" focusable="false">
+    <filter id="grainFilter">
+      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+    </filter>
+    <rect width="100%" height="100%" filter="url(#grainFilter)"/>
+  </svg>
+
+  <!-- Shared ingredient illustrations -->
+  <svg class="defs" aria-hidden="true" focusable="false" width="0" height="0">
+    <defs>
+      <radialGradient id="gTomato" cx="38%" cy="34%" r="70%">
+        <stop offset="0" stop-color="#ff7a5c"/>
+        <stop offset=".45" stop-color="#e0352a"/>
+        <stop offset="1" stop-color="#8e1414"/>
+      </radialGradient>
+      <linearGradient id="gBasil" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#8fbf5a"/>
+        <stop offset=".55" stop-color="#4f8a35"/>
+        <stop offset="1" stop-color="#2c5420"/>
+      </linearGradient>
+      <linearGradient id="gShell" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#4c5a78"/>
+        <stop offset=".5" stop-color="#1d2335"/>
+        <stop offset="1" stop-color="#0b0d15"/>
+      </linearGradient>
+      <radialGradient id="gMeat" cx="45%" cy="40%" r="65%">
+        <stop offset="0" stop-color="#ffc48a"/>
+        <stop offset=".6" stop-color="#f08a3e"/>
+        <stop offset="1" stop-color="#b9561f"/>
+      </radialGradient>
+      <linearGradient id="gShrimp" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#ffb08f"/>
+        <stop offset=".5" stop-color="#f26a45"/>
+        <stop offset="1" stop-color="#b8361f"/>
+      </linearGradient>
+      <radialGradient id="gOil" cx="40%" cy="60%" r="70%">
+        <stop offset="0" stop-color="#fff0a8"/>
+        <stop offset=".5" stop-color="#e8b830"/>
+        <stop offset="1" stop-color="#a0700c"/>
+      </radialGradient>
+      <linearGradient id="gRibbon" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="#d79b3c"/>
+        <stop offset=".5" stop-color="#ffe39a"/>
+        <stop offset="1" stop-color="#c98a2e"/>
+      </linearGradient>
+
+      <g id="ing-tomato">
+        <circle r="30" fill="url(#gTomato)"/>
+        <ellipse cx="-2" cy="26" rx="22" ry="5" fill="#6d0d0d" opacity=".25"/>
+        <ellipse cx="-11" cy="-12" rx="9" ry="5.5" fill="#fff" opacity=".75" transform="rotate(-35 -11 -12)"/>
+        <circle cx="-3" cy="-17" r="2.2" fill="#fff" opacity=".8"/>
+        <path d="M0 -26 l5 -6 l1 7 l7 -2 l-5 6 l6 4 l-8 0 l-2 7 l-3 -7 l-7 2 l4 -6 l-6 -4 l8 -1 z" fill="#3f7a2c"/>
+        <path d="M0 -28 q2 -8 7 -10" stroke="#2d5a1f" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+      </g>
+      <g id="ing-basil">
+        <path d="M-48 0 C -30 -30, 22 -32, 48 0 C 22 28, -30 30, -48 0 Z" fill="url(#gBasil)"/>
+        <path d="M-48 0 C -30 -30, 22 -32, 48 0" fill="none" stroke="#b6dd84" stroke-width="1.4" opacity=".55"/>
+        <path d="M-44 0 Q 0 -3 46 0" stroke="#2b5220" stroke-width="2" fill="none" stroke-linecap="round" opacity=".8"/>
+        <path d="M-20 -1 Q -10 -12 -2 -18 M0 -1 Q 10 -12 18 -16 M-14 0 Q -4 10 4 16 M8 0 Q 18 10 26 12" stroke="#2b5220" stroke-width="1.2" fill="none" opacity=".55"/>
+        <ellipse cx="-6" cy="-12" rx="16" ry="4" fill="#fff" opacity=".18" transform="rotate(-12)"/>
+        <path d="M-48 0 q-8 1 -14 5" stroke="#3d6a2a" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+      </g>
+      <g id="ing-mussel">
+        <path d="M-50 -4 C -40 -30, 30 -32, 52 -6 C 46 14, -30 22, -50 -4 Z" fill="url(#gShell)"/>
+        <path d="M-50 -4 C -40 -30, 30 -32, 52 -6" fill="none" stroke="#8fa2c8" stroke-width="2" opacity=".55"/>
+        <path d="M-50 2 C -36 30, 34 28, 52 0 C 38 -6, -30 -10, -50 2 Z" fill="#202638"/>
+        <path d="M-40 3 C -26 20, 26 20, 42 2 C 26 -4, -24 -6, -40 3 Z" fill="url(#gMeat)"/>
+        <path d="M-28 6 q 22 10 56 -2" stroke="#fff3d6" stroke-width="1.6" fill="none" opacity=".6"/>
+        <path d="M-36 -14 q 30 -14 70 -2 M-30 -6 q 30 -10 64 0" stroke="#5c6b8c" stroke-width="1" fill="none" opacity=".6"/>
+        <ellipse cx="-14" cy="-18" rx="18" ry="3.5" fill="#fff" opacity=".22" transform="rotate(-6)"/>
+      </g>
+      <g id="ing-shrimp">
+        <path d="M38 -6 C 36 -34, 0 -44, -22 -30 C -40 -18, -40 8, -26 22 C -18 30, -4 30, 4 24 L -2 14 C -12 18, -22 10, -22 0 C -22 -16, 4 -24, 18 -12 C 22 -8, 24 -4, 24 0 Z" fill="url(#gShrimp)"/>
+        <path d="M24 0 l14 -6 l10 12 l-12 2 l4 12 l-14 -8 z" fill="#e65a36"/>
+        <path d="M24 0 l14 -6 l10 12" stroke="#ffd2bd" stroke-width="1.2" fill="none" opacity=".6"/>
+        <path d="M-10 -36 q 4 10 -2 18 M4 -38 q 4 10 -2 20 M18 -32 q 2 8 -4 18 M-26 -20 q 8 6 6 16 M-30 0 q 8 2 10 10" stroke="#a83018" stroke-width="1.6" fill="none" opacity=".55"/>
+        <path d="M-24 -20 C -12 -36, 18 -38, 30 -18" stroke="#fff" stroke-width="2.4" fill="none" opacity=".35" stroke-linecap="round"/>
+        <circle cx="-2" cy="20" r="2.4" fill="#2a120c"/>
+        <path d="M-2 22 q -24 10 -40 4 M0 24 q -16 18 -36 20" stroke="#c4472a" stroke-width="1.1" fill="none"/>
+      </g>
+      <g id="ing-oil">
+        <path d="M0 -26 C 6 -12, 18 0, 18 10 C 18 22, 9 28, 0 28 C -9 28, -18 22, -18 10 C -18 0, -6 -12, 0 -26 Z" fill="url(#gOil)"/>
+        <path d="M-9 4 C -10 14, -6 20, 0 22" stroke="#fff8d0" stroke-width="3" fill="none" stroke-linecap="round" opacity=".85"/>
+        <circle cx="7" cy="2" r="2.4" fill="#fff" opacity=".8"/>
+      </g>
+      <g id="ing-nest">
+        <ellipse cx="0" cy="8" rx="44" ry="28" fill="#9a5a1c" opacity=".35"/>
+        <g fill="none" stroke="url(#gRibbon)" stroke-width="5" stroke-linecap="round">
+          <ellipse rx="40" ry="26" transform="rotate(-10)"/>
+          <ellipse rx="34" ry="22" transform="rotate(20)"/>
+          <ellipse rx="28" ry="18" transform="rotate(-30)"/>
+          <ellipse rx="20" ry="13" transform="rotate(40)"/>
+          <ellipse rx="12" ry="8"/>
+        </g>
+        <circle cx="-12" cy="-6" r="2.4" fill="#2a1a12"/><circle cx="8" cy="4" r="2" fill="#2a1a12"/><circle cx="14" cy="-10" r="1.8" fill="#2a1a12"/><circle cx="-4" cy="12" r="1.6" fill="#2a1a12"/>
+        <path d="M-20 -10 q 10 -8 26 -6" stroke="#fffbe8" stroke-width="2" opacity=".6" fill="none" stroke-linecap="round"/>
+      </g>
+    </defs>
+  </svg>
+
+  <header class="nav" role="banner">
+    <a class="brand" href="#top" aria-label="Nonna Lume, back to top">
+      <svg viewBox="0 0 40 40" class="brand__mark" aria-hidden="true"><circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M12 22 C 14 12, 26 12, 28 22 M14 26 C 18 18, 22 18, 26 26 M20 6 V 15" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+      <span>Nonna <em>Lume</em></span>
+    </a>
+    <nav aria-label="Primary">
+      <ul>
+        <li><a href="#ballet">Kitchen</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#reserve" class="nav__cta">Reserve</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero__copy">
+        <p class="eyebrow"><span class="dot"></span> Trattoria moderna<span class="hide-sm"> · Via delle Lanterne 14</span></p>
+        <h1 id="hero-title" class="hero__title">
+          <span class="line"><span>Twirled</span></span>
+          <span class="line"><span><em>by hand.</em></span></span>
+        </h1>
+        <p class="hero__lede">Fresh pasta rolled each morning, sauces that simmer since noon, and a candlelit room that feels like your grandmother's kitchen — only with better wine.</p>
+        <div class="hero__actions">
+          <a href="#reserve" class="btn btn--light">Book a table</a>
+          <a href="#menu" class="link-underline">See tonight's menu</a>
+        </div>
+      </div>
+
+      <div class="hero__art">
+        <svg id="heroSvg" viewBox="0 0 600 700" role="img" aria-labelledby="heroArtTitle">
+          <title id="heroArtTitle">A silver fork slowly twirling a golden nest of spaghetti</title>
+          <defs>
+            <radialGradient id="gGlow" cx="50%" cy="50%" r="50%">
+              <stop offset="0" stop-color="#ffb36b" stop-opacity=".38"/>
+              <stop offset=".6" stop-color="#c23a2a" stop-opacity=".12"/>
+              <stop offset="1" stop-color="#5b1418" stop-opacity="0"/>
+            </radialGradient>
+            <linearGradient id="gStrandBack" x1="160" y1="0" x2="440" y2="0" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#7d4a17"/>
+              <stop offset=".5" stop-color="#c88e3a"/>
+              <stop offset="1" stop-color="#7d4a17"/>
+            </linearGradient>
+            <linearGradient id="gStrandFront" x1="150" y1="0" x2="450" y2="0" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#a86a22"/>
+              <stop offset=".35" stop-color="#f2c56a"/>
+              <stop offset=".55" stop-color="#ffe7a6"/>
+              <stop offset="1" stop-color="#9c5f1c"/>
+            </linearGradient>
+            <linearGradient id="gDangle" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#f2c56a"/>
+              <stop offset="1" stop-color="#b47528"/>
+            </linearGradient>
+            <linearGradient id="gSilver" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#6d6a70"/>
+              <stop offset=".3" stop-color="#f4f1ec"/>
+              <stop offset=".55" stop-color="#bdb8b3"/>
+              <stop offset=".8" stop-color="#ffffff"/>
+              <stop offset="1" stop-color="#7a767a"/>
+            </linearGradient>
+            <radialGradient id="gShadow" cx="50%" cy="50%" r="50%">
+              <stop offset="0" stop-color="#1c0406" stop-opacity=".7"/>
+              <stop offset="1" stop-color="#1c0406" stop-opacity="0"/>
+            </radialGradient>
+            <path id="ringPath" d="M300 350 m -255 0 a 255 255 0 1 1 510 0 a 255 255 0 1 1 -510 0"/>
+          </defs>
+          <circle cx="300" cy="350" r="300" fill="url(#gGlow)"/>
+          <g class="ring">
+            <circle cx="300" cy="350" r="232" fill="none" stroke="#f4ecdf" stroke-opacity=".14"/>
+            <text class="ring__text"><textPath href="#ringPath" textLength="1590" lengthAdjust="spacing">FATTA A MANO · OGNI MATTINA · DAL FORNO ALLA TAVOLA · CON AMORE · FATTA A MANO · OGNI MATTINA ·</textPath></text>
+          </g>
+          <ellipse cx="300" cy="610" rx="170" ry="22" fill="url(#gShadow)" class="hero__shadow"/>
+          <g class="twirl">
+            <g id="strandsBack" fill="none" stroke="url(#gStrandBack)" stroke-linecap="round"></g>
+            <g class="fork">
+              <path d="M291 -140 L309 -140 L313 160 C 314 190, 330 205, 332 236 L332 300 L326 300 L324 248 L318 248 L318 300 L312 300 L311 248 L289 248 L288 300 L282 300 L282 248 L276 248 L274 300 L268 300 L268 236 C 270 205, 286 190, 287 160 Z" fill="url(#gSilver)"/>
+              <path d="M298 -140 L300 150" stroke="#fff" stroke-width="2" opacity=".7"/>
+              <path d="M278 238 L322 238" stroke="#5e5a5e" stroke-width="1" opacity=".5"/>
+            </g>
+            <g id="strandsFront" fill="none" stroke="url(#gStrandFront)" stroke-linecap="round"></g>
+            <g id="strandsShine" fill="none" stroke="#fff8dc" stroke-linecap="round"></g>
+            <g id="dangles" fill="none" stroke="url(#gDangle)" stroke-linecap="round"></g>
+            <g class="garnish">
+              <use href="#ing-basil" transform="translate(338 300) rotate(-28) scale(.72)"/>
+              <use href="#ing-tomato" transform="translate(228 318) scale(.62)"/>
+              <circle cx="262" cy="292" r="3" fill="#2a120c"/><circle cx="356" cy="338" r="2.4" fill="#2a120c"/><circle cx="300" cy="360" r="2.2" fill="#2a120c"/>
+            </g>
+          </g>
+          <g class="drops">
+            <use href="#ing-oil" transform="translate(110 520) scale(.5)"/>
+            <use href="#ing-oil" transform="translate(500 180) scale(.36)"/>
+            <use href="#ing-tomato" transform="translate(510 540) scale(.55)"/>
+          </g>
+        </svg>
+      </div>
+      <p class="hero__scroll" aria-hidden="true"><span></span> Scroll for the kitchen</p>
+    </section>
+
+    <!-- INGREDIENT BALLET -->
+    <section class="ballet" id="ballet" aria-labelledby="ballet-title">
+      <div class="ballet__inner">
+        <div class="ballet__copy">
+          <p class="eyebrow eyebrow--dark">The ingredient ballet</p>
+          <h2 id="ballet-title" class="ballet__title">Every plate is a <em>small choreography.</em></h2>
+          <div class="chapter" aria-live="polite">
+            <span class="chapter__num" id="chapterNum">01</span>
+            <div class="chapter__text">
+              <p class="chapter__name" id="chapterName">Il mercato</p>
+              <p class="chapter__cap" id="chapterCap">Ribbons of pasta, sun-split tomatoes and mussels from the morning boat arrive at the pass.</p>
+            </div>
+          </div>
+          <div class="progress" aria-hidden="true"><span id="balletBar"></span></div>
+        </div>
+        <div class="ballet__stage">
+          <svg id="balletSvg" viewBox="0 0 1000 1000" role="img" aria-labelledby="balletArtTitle">
+            <title id="balletArtTitle">Pasta ribbons, cherry tomatoes, basil, mussels, shrimp and olive oil swirl together and land on a plate as linguine allo scoglio</title>
+            <defs>
+              <radialGradient id="gPlate" cx="46%" cy="40%" r="62%">
+                <stop offset="0" stop-color="#ffffff"/>
+                <stop offset=".7" stop-color="#f3ede4"/>
+                <stop offset="1" stop-color="#d8cdbd"/>
+              </radialGradient>
+              <radialGradient id="gWell" cx="50%" cy="45%" r="60%">
+                <stop offset="0" stop-color="#fbf8f2"/>
+                <stop offset=".8" stop-color="#ece3d6"/>
+                <stop offset="1" stop-color="#d9ccb9"/>
+              </radialGradient>
+              <radialGradient id="gSauce" cx="50%" cy="50%" r="50%">
+                <stop offset="0" stop-color="#d23a24"/>
+                <stop offset=".7" stop-color="#a8231a"/>
+                <stop offset="1" stop-color="#a8231a" stop-opacity="0"/>
+              </radialGradient>
+              <radialGradient id="gPlateShadow" cx="50%" cy="50%" r="50%">
+                <stop offset="0" stop-color="#5a3a24" stop-opacity=".35"/>
+                <stop offset="1" stop-color="#5a3a24" stop-opacity="0"/>
+              </radialGradient>
+              <linearGradient id="gNest" x1="360" y1="0" x2="640" y2="0" gradientUnits="userSpaceOnUse">
+                <stop offset="0" stop-color="#b57a2c"/>
+                <stop offset=".45" stop-color="#ffe29a"/>
+                <stop offset="1" stop-color="#b07226"/>
+              </linearGradient>
+            </defs>
+            <g class="spiral-guide" fill="none" stroke="#b8322a" stroke-opacity=".12" stroke-dasharray="2 10" stroke-linecap="round">
+              <circle cx="500" cy="540" r="380"/>
+              <circle cx="500" cy="540" r="260"/>
+            </g>
+            <g id="plate">
+              <ellipse cx="512" cy="636" rx="360" ry="340" fill="url(#gPlateShadow)"/>
+              <circle cx="500" cy="600" r="330" fill="url(#gPlate)"/>
+              <circle cx="500" cy="600" r="322" fill="none" stroke="#b8322a" stroke-width="2" stroke-opacity=".5"/>
+              <circle cx="500" cy="600" r="312" fill="none" stroke="#b8322a" stroke-width=".8" stroke-opacity=".4" stroke-dasharray="1 7"/>
+              <circle cx="500" cy="600" r="236" fill="url(#gWell)"/>
+              <path d="M310 470 A 236 236 0 0 1 560 368" fill="none" stroke="#fff" stroke-width="6" stroke-opacity=".8" stroke-linecap="round"/>
+              <ellipse id="sauce" cx="500" cy="606" rx="190" ry="176" fill="url(#gSauce)" opacity="0"/>
+              <g id="platedNest" fill="none" stroke="url(#gNest)" stroke-linecap="round"></g>
+            </g>
+            <g id="flyers"></g>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- MENU -->
+    <section class="menu" id="menu" aria-labelledby="menu-title">
+      <div class="section-head">
+        <p class="eyebrow eyebrow--dark">La carta · Autunno</p>
+        <h2 id="menu-title" class="section-title">Tonight, <em>from our kitchen.</em></h2>
+        <p class="section-sub">Six dishes, changed with the season. Hover a dish to meet it.</p>
+      </div>
+      <ol class="menu__list">
+        <li class="dish" data-ing="nest">
+          <span class="dish__n">i.</span>
+          <div class="dish__body"><h3>Cacio e Pepe di Lume</h3><p>Hand-cut tonnarelli, pecorino aged eighteen months, three peppers.</p></div>
+          <span class="dish__lead" aria-hidden="true"></span><span class="dish__price">€19</span>
+        </li>
+        <li class="dish" data-ing="tomato">
+          <span class="dish__n">ii.</span>
+          <div class="dish__body"><h3>Burrata &amp; Pomodorini Arrosto</h3><p>Slow-roasted cherry tomatoes, warm burrata, toasted bread crumbs.</p></div>
+          <span class="dish__lead" aria-hidden="true"></span><span class="dish__price">€16</span>
+        </li>
+        <li class="dish" data-ing="mussel">
+          <span class="dish__n">iii.</span>
+          <div class="dish__body"><h3>Linguine allo Scoglio</h3><p>Mussels, red prawns and cherry tomatoes, finished at the table.</p></div>
+          <span class="dish__lead" aria-hidden="true"></span><span class="dish__price">€28</span>
+        </li>
+        <li class="dish" data-ing="shrimp">
+          <span class="dish__n">iv.</span>
+          <div class="dish__body"><h3>Gamberi al Limone</h3><p>Charred prawns, Amalfi lemon butter, a whisper of chilli.</p></div>
+          <span class="dish__lead" aria-hidden="true"></span><span class="dish__price">€24</span>
+        </li>
+        <li class="dish" data-ing="basil">
+          <span class="dish__n">v.</span>
+          <div class="dish__body"><h3>Trofie al Pesto della Nonna</h3><p>Basil pounded in marble, pine nuts, green beans and potato.</p></div>
+          <span class="dish__lead" aria-hidden="true"></span><span class="dish__price">€18</span>
+        </li>
+        <li class="dish" data-ing="oil">
+          <span class="dish__n">vi.</span>
+          <div class="dish__body"><h3>Focaccia &amp; Olio Nuovo</h3><p>This year's first press, rosemary, flakes of sea salt.</p></div>
+          <span class="dish__lead" aria-hidden="true"></span><span class="dish__price">€9</span>
+        </li>
+      </ol>
+      <div class="cursor-card" id="cursorCard" aria-hidden="true">
+        <svg viewBox="-70 -70 140 140"><circle r="62" fill="#fbf6ee"/><circle r="62" fill="none" stroke="#b8322a" stroke-opacity=".35" stroke-dasharray="1 6"/><use id="cursorUse" href="#ing-nest" transform="scale(1.05)"/></svg>
+      </div>
+    </section>
+
+    <!-- RESERVATION -->
+    <section class="reserve" id="reserve" aria-labelledby="reserve-title">
+      <div class="reserve__grid">
+        <div class="reserve__intro">
+          <p class="eyebrow">Prenotazioni</p>
+          <h2 id="reserve-title" class="section-title section-title--light">Your table <em>is waiting.</em></h2>
+          <p class="section-sub section-sub--light">Thirty-two seats, one long candlelit room. We hold a few tables each night for walk-ins — the rest are yours.</p>
+          <dl class="hours">
+            <div><dt>Tue – Thu</dt><dd>18:00 – 23:00</dd></div>
+            <div><dt>Fri – Sat</dt><dd>18:00 – 00:30</dd></div>
+            <div><dt>Sunday</dt><dd>12:30 – 16:00</dd></div>
+          </dl>
+        </div>
+
+        <div class="card">
+          <form class="booking" id="booking" novalidate>
+            <fieldset>
+              <legend>Choose a date</legend>
+              <div class="pills" id="datePills" role="group" aria-label="Available dates">
+                <span class="pills__indicator" id="dateIndicator" aria-hidden="true"></span>
+              </div>
+            </fieldset>
+
+            <fieldset class="row-split">
+              <div>
+                <legend id="guestsLabel">Guests</legend>
+                <div class="stepper" role="group" aria-labelledby="guestsLabel">
+                  <button type="button" class="stepper__btn" id="guestMinus" aria-label="Fewer guests">−</button>
+                  <output class="stepper__val" id="guestVal" aria-live="polite"><span>2</span></output>
+                  <button type="button" class="stepper__btn" id="guestPlus" aria-label="More guests">+</button>
+                </div>
+              </div>
+              <div class="name-field">
+                <label for="guestName">Name for the booking</label>
+                <input id="guestName" name="name" type="text" autocomplete="name" placeholder="e.g. Giulia R.">
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>Time</legend>
+              <div class="slots" id="timeSlots" role="group" aria-label="Available times"></div>
+            </fieldset>
+
+            <div class="submit-wrap">
+              <button type="submit" class="submit" id="submitBtn">
+                <span class="submit__label">Reserve the table</span>
+                <svg class="submit__spin" viewBox="0 0 50 50" aria-hidden="true"><circle cx="25" cy="25" r="20" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-dasharray="80 200"/></svg>
+                <svg class="submit__check" viewBox="0 0 50 50" aria-hidden="true"><path d="M14 26 L22 34 L37 17" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <p class="submit__note">No deposit · Free cancellation until 15:00 on the day</p>
+              <div class="burst" id="burst" aria-hidden="true"></div>
+            </div>
+          </form>
+
+          <div class="confirm" id="confirm" role="status" aria-live="polite" hidden>
+            <p class="eyebrow eyebrow--dark">Confermato</p>
+            <h3 class="confirm__title">Grazie<span id="confirmName"></span>.</h3>
+            <p class="confirm__text">A table for <strong id="confirmGuests">2</strong> on <strong id="confirmDate">—</strong> at <strong id="confirmTime">—</strong>. We'll light the candle.</p>
+            <div class="ticket" aria-hidden="true"><span>Nº <b id="confirmCode">NL-0000</b></span><span>Via delle Lanterne 14</span></div>
+            <button type="button" class="btn btn--ghost" id="resetBtn">Book another table</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a href="https://github.com/tabishhassan5121472?tab=repositories" class="footer__back">← More projects</a>
+    <p class="footer__brand">Nonna <em>Lume</em> — a fictional trattoria</p>
+    <p>Designed &amp; built by <a href="https://github.com/tabishhassan5121472" target="_blank" rel="noopener">Tabish Hassan</a></p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
